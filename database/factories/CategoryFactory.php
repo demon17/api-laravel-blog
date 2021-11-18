@@ -8,6 +8,6 @@ use Faker\Generator as Faker;
 $factory->define(Category::class, function (Faker $faker) {
     return [
         'title'=>$faker->name,
-        'slug'=>strtolower(implode('-',explode(' ',$faker->name)))
+        'description'=>strtolower(implode('-',explode(' ',$faker->name)))
     ];
 });

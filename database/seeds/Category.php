@@ -16,11 +16,11 @@ class Category extends Seeder
             [
                 [
                     'title' => 'cat-title1',
-                    'slug' => 'cat-slug1',
+                    'description' => 'cat-description1',
                 ],
                 [
                     'title' => 'cat-title2',
-                    'slug' => 'cat-slug2',
+                    'description' => 'cat-description2',
                 ],
             ]
         );

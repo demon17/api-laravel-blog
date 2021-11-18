@@ -11,13 +11,27 @@ use Validator;
 use Illuminate\Support\Str;
 use Auth;
 
+/**
+ * Class AuthorController
+ * @package App\Http\Controllers\Api
+ */
 class AuthorController extends Controller {
-    // show all the users
+
+    /**
+     * show all the users
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function index(){
         return AuthorResource::collection(User::orderBy('id','DESC')->paginate(10));
     }
 
-    // check name validation
+    /**
+     * check name validation
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function checkName(Request $request){
         $validators=Validator::make($request->all(),[
             'name'=>'required'
@@ -25,7 +39,12 @@ class AuthorController extends Controller {
         return Response::json(['errors'=>$validators->getMessageBag()->toArray()]);
     }
 
-    // check email validation
+    /**
+     * check email validation
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function checkEmail(Request $request){
         $validators=Validator::make($request->all(),[
             'email'=>'required|email|unique:users'
@@ -33,7 +52,12 @@ class AuthorController extends Controller {
         return Response::json(['errors'=>$validators->getMessageBag()->toArray()]);
     }
 
-    // check password validation
+    /**
+     * check password validation
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function checkPassword(Request $request){
         $validators=Validator::make($request->all(),[
             'password'=>'required'
@@ -41,7 +65,12 @@ class AuthorController extends Controller {
         return Response::json(['errors'=>$validators->getMessageBag()->toArray()]);
     }
 
-    // register user
+    /**
+     * register user
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function register(Request $request){
         $validators=Validator::make($request->all(),[
             'name'=>'required',
@@ -61,7 +90,12 @@ class AuthorController extends Controller {
         }
     }
 
-    // login user
+    /**
+     * login user
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function login(Request $request){
         $validators=Validator::make($request->all(),[
             'email'=>'required|email',
@@ -81,7 +115,11 @@ class AuthorController extends Controller {
         }
     }
 
-    // get authenticated author
+    /**
+     * get authenticated author
+     *
+     * @return mixed
+     */
     public function getAuthor(){
         $author = [];
         $author['name'] = Auth::user()->name;
@@ -89,7 +127,12 @@ class AuthorController extends Controller {
         return Response::json($author);
     }
 
-    // log the author out
+    /**
+     * log the author out
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function logout(Request $request){
         $author=$request->user();
         $author->api_token=NULL;

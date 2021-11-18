@@ -34,15 +34,13 @@ check localhost: http://127.0.0.1:8000
 ```
 ## Features
     1. Category (Add/Update/Remove/Search)
-    2. Article (Add/Update/Remove/Search/Article wise comment)
+    2. Article (Add/Update/Remove/Search)
     3. Author (Register/Login/Logout)
-    4. Vote (Add/Update/Remove)
 
 ## Authorization
     1. Category -> Needs to be authenticated for add/update/remove
     2. Article -> Needs to be authenticated for add/update/remove
     3. Author -> Needs to be authenticated for details/logout
-    4. Vote -> Needs to be authenticated for add/update/remove
     
 ## Endpoints
     * Category
@@ -52,6 +50,7 @@ check localhost: http://127.0.0.1:8000
         4 ) Show -> /api/category/{id}/show 
         5 ) All -> /api/categories
         6 ) Search -> /api/category/{keyword}/search
+        6 ) Top -> /api/category/top
         
     2. Article
         1 ) Add -> /api/article/store 
@@ -59,19 +58,12 @@ check localhost: http://127.0.0.1:8000
         3 ) Remove -> /api/article/{id}/remove 
         4 ) Show -> /api/article/{id}/show 
         5 ) All -> /api/articles
-        6 ) Search -> /api/article/{keyword}/search
+        6 ) Search -> /api/article/search
         
     3. Author
         1 ) Register -> /api/register 
         2 ) Login -> /api/login
         3 ) Logout -> /api/logout
-        
-    4. Vote
-        1 ) Add -> /api/comment/store 
-        2 ) Update -> /api/comment/{id}/update 
-        3 ) Remove -> /api/comment/{id}/remove 
-        4 ) Show -> /api/comment/{id}/show 
-        5 ) All -> /api/comment
 
 
 To test this API project you can use [Postman](https://www.postman.com/) application.For authorization purpose you need to add below headers

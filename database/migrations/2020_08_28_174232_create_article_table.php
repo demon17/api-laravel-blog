@@ -18,8 +18,8 @@ class CreateArticleTable extends Migration
             $table->string('title');
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('category_id');
-            $table->text('body');
-            $table->string('image')->nullable();
+            $table->text('description');
+            $table->integer('vote');
             $table->timestamps();
             $table->foreign('author_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
