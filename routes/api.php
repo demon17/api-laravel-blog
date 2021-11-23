@@ -38,7 +38,7 @@ Route::get('article/{id}/show','ArticleController@show');
 Route::post('article/store','ArticleController@store')->middleware('auth:api');
 Route::post('article/update','ArticleController@update')->middleware('auth:api');
 Route::post('article/remove','ArticleController@remove')->middleware('auth:api');
-// All articles
+// Search articles
 Route::post('article/search','ArticleController@searchArticle');
 
 /**********************************   Author   *******************************************/
